@@ -122,3 +122,102 @@ Migrating to CreateMicroposts (20130419234424)
   [1m[35m (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
   [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("microposts")[0m
   [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/microposts" for 127.0.0.1 at 2013-04-19 17:15:23 -0700
+Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT "microposts".* FROM "microposts" 
+  Rendered microposts/index.html.erb within layouts/application (414.1ms)
+Compiled microposts.css  (273ms)  (pid 63892)
+Compiled application.css  (860ms)  (pid 63892)
+Compiled microposts.js  (3541ms)  (pid 63892)
+Compiled application.js  (3667ms)  (pid 63892)
+Completed 200 OK in 6785ms (Views: 6464.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/microposts.css?body=1" for 127.0.0.1 at 2013-04-19 17:15:58 -0700
+Served asset /microposts.css - 200 OK (12ms)
+
+
+Started GET "/assets/microposts.js?body=1" for 127.0.0.1 at 2013-04-19 17:15:58 -0700
+Served asset /microposts.js - 200 OK (10ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-19 17:15:58 -0700
+Served asset /application.css - 304 Not Modified (25ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-04-19 17:15:58 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-19 17:15:58 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-04-19 17:15:58 -0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-04-19 17:15:58 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-19 17:15:58 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-19 17:15:58 -0700
+Served asset /application.js - 304 Not Modified (81ms)
+
+
+Started GET "/microposts/new" for 127.0.0.1 at 2013-04-19 17:16:01 -0700
+Processing by MicropostsController#new as HTML
+  Rendered microposts/_form.html.erb (1098.9ms)
+  Rendered microposts/new.html.erb within layouts/application (1343.2ms)
+Completed 200 OK in 1406ms (Views: 1369.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-19 17:16:02 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-19 17:16:03 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-04-19 17:16:03 -0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-04-19 17:16:03 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-04-19 17:16:03 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-19 17:16:03 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-19 17:16:03 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/microposts" for 127.0.0.1 at 2013-04-19 17:16:08 -0700
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Me0eIdzz0OSPQ9DQflgRWVws/MZXaPH0o1pm0Xufp4U=", "micropost"=>{"content"=>"uuiuui", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 37ms
+
+NoMethodError (undefined method `comtent' for #<Micropost:0x007ff3ff708640>):
+  app/controllers/microposts_controller.rb:46:in `block in create'
+  app/controllers/microposts_controller.rb:45:in `create'
+
+
+  Rendered /Users/pulkitjaiswal/.rvm/gems/ruby-1.9.3-p385/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.4ms)
+  Rendered /Users/pulkitjaiswal/.rvm/gems/ruby-1.9.3-p385/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (39.8ms)
+  Rendered /Users/pulkitjaiswal/.rvm/gems/ruby-1.9.3-p385/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (93.4ms)
