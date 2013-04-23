@@ -248,7 +248,7 @@ Devise.setup do |config|
       :scope => 'email,user_birthday,read_friendlists, publish_stream, xmpp_login, offline_access',
       :display => 'popup'
   }
-  config.omniauth :google_oauth2, "b", "b", {
+  config.omniauth :google_oauth2, "932979821061.apps.googleusercontent.com", "f-30fhVYhs-oOouHRKOZ6nYE", {
       access_type: 'offline',
       scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.google.com/m8/feeds/ https://mail.google.com/',
       approval_prompt: ''
