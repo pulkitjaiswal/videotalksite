@@ -1,8 +1,15 @@
 Videotalksite::Application.routes.draw do
+
   resources :microposts
 
-  resources :users
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {:omniauth_callbacks => "omniauth_callbacks", registrations: "registrations"} do
+    get '/users/logout' => 'devise/sessions#destroy'
+  end
 
+  root :to => 'home#index'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

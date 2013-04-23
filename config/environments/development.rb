@@ -34,4 +34,17 @@ Videotalksite::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  #Config mailer
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+      :address        => "smtp.gmail.com",
+      :port           => "25",
+      :authentication => :plain,
+      :user_name      => 'fruitiondeveloper@gmail.com',
+      :password       => 'fru1tion',
+      :domain         => 'gmail.com'
+  }
 end
