@@ -244,7 +244,7 @@ Devise.setup do |config|
 
   #config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'deekau', :identifier => 'http://localhost:4000/openid/provider'
 
-  config.omniauth :facebook, "a", "a", {
+  config.omniauth :facebook, "558069457556904", "d60f08d57000fc7abeb8d10575480d1c", {
       :scope => 'email,user_birthday,read_friendlists, publish_stream, xmpp_login, offline_access',
       :display => 'popup'
   }
@@ -254,5 +254,5 @@ Devise.setup do |config|
       approval_prompt: ''
   }
 
-  config.omniauth :twitter, "c", "c"
+  config.omniauth :twitter, "tSxZiJhZ8U2NUkxbv2OOQ", "u6aFylg1qzMT284JQMN91MOSioC36voS9oUhaiU"
 end
