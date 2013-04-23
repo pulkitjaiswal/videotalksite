@@ -50,15 +50,12 @@ class User
   def password_required?
     (authentications.empty? || !password.blank?) && super
   end
-
   def email_required?
     (authentications.empty? || !email.blank?) && super
   end
-
   def email_uniqued?
     (authentications.empty? || !email.blank?) && super
   end
-
   def update_with_password(params, *options)
     if encrypted_password.blank?
       update_attributes(params, *options)

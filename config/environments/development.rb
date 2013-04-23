@@ -22,12 +22,6 @@ Videotalksite::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-  # Raise exception on mass assignment protection for Active Record models
-  config.active_record.mass_assignment_sanitizer = :strict
-
-  # Log the query plan for queries taking more than this (works
-  # with SQLite, MySQL, and PostgreSQL)
-  config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Do not compress assets
   config.assets.compress = false
@@ -39,6 +33,7 @@ Videotalksite::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :address        => "smtp.gmail.com",
       :port           => "25",
@@ -47,4 +42,5 @@ Videotalksite::Application.configure do
       :password       => 'fru1tion',
       :domain         => 'gmail.com'
   }
+  config.action_mailer.perform_deliveries = true
 end
