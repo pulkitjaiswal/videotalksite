@@ -17,6 +17,14 @@ gem 'fb_graph'
 gem 'nifty-generators'
 gem 'activeadmin', '~> 0.5.1'
 gem 'activeadmin-mongoid', git: "git://github.com/elia/activeadmin-mongoid.git"
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'streamio-ffmpeg'
+gem 'carrierwave-video'
+gem 'carrierwave-video-thumbnailer'
+gem 'carrierwave_backgrounder'
+gem 'delayed_job_mongoid'
+gem 'daemons'
+gem 'backbone-on-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -31,7 +39,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'jquery-ui-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

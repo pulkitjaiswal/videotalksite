@@ -3,12 +3,45 @@
 <head>
   <title>Voicetalk</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "//cdn.sublimevideo.net/js/h5clmm5v.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
- <div class="container-fluid">
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "sample app", '#', id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home", '#' %></li>
+          <li><%= link_to "Help", '#' %></li>
+          <% if user_signed_in? %>
+            <li>
+              <div class="dropdown profile">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="img-profile"><%= image_tag(current_user.image_url) %></span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><%= link_to 'Your profile', '/profile' %> </li>
+                  <li><%= link_to 'Setting', edit_user_registration_path %> </li>
+                  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </div>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+ <div id="content" class="container-fluid">
    <%= yield %>
  </div>
+ <video id="a240e92d" class="sublime" poster="<%= Video.last.path.screenshot if Video.last.present?%>" width="640" height="360" title="Midnight Sun" data-uid="a240e92d" preload="none">
+   <source src="<%= Video.last.path.mp4 if Video.last.present?%>" />
+ </video>
 </body>
 </html>

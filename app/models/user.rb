@@ -3,12 +3,15 @@ class User
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  attr_accessible :email,:password
+  attr_accessible :email,:password,:image_url,:last_name,:first_name
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable ,:confirmable
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
+  field :image_url, :type => String
+  field :first_name, :type => String
+  field :last_name, :type => String
   field :encrypted_password, :type => String, :default => ""
   
   ## Recoverable
@@ -40,6 +43,7 @@ class User
   # field :authentication_token, :type => String
   validates_uniqueness_of :email
   has_many :authentications
+  has_one :avatar
   def apply_omniauth(omni)
     authentications.build(:provider => omni['provider'],
                           :uid => omni['uid'],
@@ -62,5 +66,8 @@ class User
     else
       super
     end
+  end
+  def name
+
   end
 end

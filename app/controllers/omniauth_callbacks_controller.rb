@@ -16,6 +16,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     omni = request.env["omniauth.auth"]
     @token = omni['credentials'].token
     @token_secret = omni['credentials'].secret
+    @avatar = omni['info'].image
+    puts @avatar
+    @last_name = omni['info'].last_name
+    @first_name = omni['info'].first_name
+    puts request.env["omniauth.auth"].to_yaml
     authentication = Authentication.where(:provider => omni['provider'],:uid  => omni['uid']).first
     if authentication
       flash[:notice] = "Logged in Successfully"
@@ -29,8 +34,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       @user = User.where("email" => omni['info'].email).first
       if @user.nil?
-        @user = User.new
+        @user = User.new({image_url: @avatar,last_name: @last_name,first_name: @first_name})
         @user.email = omni['info'].email unless omni['info'].email.blank?
+        puts @user.to_json
       end
       @user.apply_omniauth(omni)
       @user.skip_confirmation!

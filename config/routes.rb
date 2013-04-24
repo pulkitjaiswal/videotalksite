@@ -1,5 +1,8 @@
 Videotalksite::Application.routes.draw do
 
+  resources :videos
+
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
              controllers: {:omniauth_callbacks => "omniauth_callbacks", registrations: "registrations"}
 
@@ -7,6 +10,9 @@ Videotalksite::Application.routes.draw do
 
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
+  resource :users
+  match '/profile' => "users#profile"
+  match '/upload_avatar' => "users#upload_avatar"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

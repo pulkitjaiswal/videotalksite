@@ -80,4 +80,33 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def profile
+    @user = current_user
+    @avatar = Avatar.new
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+
+    end
+  end
+
+  def upload_avatar
+    @user = current_user
+    @avatars = []
+    params[:avatar][:upload].each do |file|
+      @avatar = Avatar.new()
+      @avatar.user_id = current_user.id
+      @avatar.upload = file
+      @avatar.save
+      @avatars << @avatar
+    end
+    if @avatars.empty?
+      respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @avatars }
+      format.js{ render js: 'alert("adsd")'}
+      end
+    end
+  end
 end
