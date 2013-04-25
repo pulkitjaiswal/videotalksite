@@ -13,6 +13,7 @@ Videotalksite::Application.routes.draw do
   resource :users
   match '/profile' => "users#profile"
   match '/upload_avatar' => "users#upload_avatar"
+  match 'update_avatar' => "users#update_avatar"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

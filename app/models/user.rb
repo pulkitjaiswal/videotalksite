@@ -43,7 +43,7 @@ class User
   # field :authentication_token, :type => String
   validates_uniqueness_of :email
   has_many :authentications
-  has_one :avatar
+  has_many :avatars
   def apply_omniauth(omni)
     authentications.build(:provider => omni['provider'],
                           :uid => omni['uid'],

@@ -93,20 +93,25 @@ class UsersController < ApplicationController
 
   def upload_avatar
     @user = current_user
-    @avatars = []
-    params[:avatar][:upload].each do |file|
-      @avatar = Avatar.new()
-      @avatar.user_id = current_user.id
-      @avatar.upload = file
-      @avatar.save
-      @avatars << @avatar
-    end
-    if @avatars.empty?
-      respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @avatars }
-      format.js{ render js: 'alert("adsd")'}
-      end
+    @avatar = Avatar.new()
+    @avatar.user_id = current_user.id
+    @avatar.upload = params[:avatar][:upload][0]
+    @avatar.save
+    render json: [@avatar.to_jq_upload].to_json
+    #respond_to do |format|
+    #  format.html # show.html.erb
+    #  format.json { render json: [@avatar.to_jq_upload].to_json }
+    #  format.js{ render js: 'alert("adsd")'}
+    #end
+  end
+  def update_avatar
+    @user = current_user
+    @avatar = Avatar.find(params[:id])
+    @user.image_url = @avatar.upload.thumb.url
+    if @user.save
+      render json: {:url => @avatar.upload.thumb.url}
+    else
+      render json: {}
     end
   end
 end

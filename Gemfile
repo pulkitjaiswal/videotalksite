@@ -16,6 +16,7 @@ gem 'twitter'
 gem 'fb_graph'
 gem 'nifty-generators'
 gem 'activeadmin', '~> 0.5.1'
+gem "rmagick", "~> 2.13.1"
 gem 'activeadmin-mongoid', git: "git://github.com/elia/activeadmin-mongoid.git"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'streamio-ffmpeg'

@@ -1,0 +1,22 @@
+#content{
+  display: block;
+  margin: 0;
+  padding-top: 70px;
+}
+.profile{
+  padding: 10px 15px 10px;
+  display: inline-block;
+  a:hover{
+    text-decoration: none
+  }
+}
+.img-profile{
+  width: auto;
+  height: 21px;
+  background: transparent;
+  padding-top:3px;
+  img{
+    width: 17px;
+    height: 17px;
+  }
+}
