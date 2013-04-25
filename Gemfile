@@ -26,6 +26,8 @@ gem 'carrierwave_backgrounder'
 gem 'delayed_job_mongoid'
 gem 'daemons'
 gem 'backbone-on-rails'
+gem 'haml-rails'
+gem 'eco'
 
 # Gems used only for assets and not required
 # in production environments by default.

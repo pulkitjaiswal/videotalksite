@@ -1,0 +1,16 @@
+%div#upload-page.width-90per
+  %div.input.left
+    %i.icon-cloud-upload.fontsize-128px.pointer
+    %i.icon-music.fontsize-128px.pointer
+    %div.text
+      %p.fontsize-22px Select files to upload
+      %p Or drag and drop file
+    = form_for(Video.new, :html => {:class => 'hide'}) do |f|
+      = f.file_field :path
+    %div.controller
+      %div.progress.progress-striped.active.width-90per.left
+        %div.bar{:style => "width: 0%"}
+      %button.btn.btn-danger.right{:type => "button"} Cancel
+      %button.btn.btn-success.right{:type => "button"} View
+  %div.sidebar.right
+

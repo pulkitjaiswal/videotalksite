@@ -1,4 +1,4 @@
-Videotalksite::Application.routes.draw do
+Voicetalk::Application.routes.draw do
 
   resources :videos
 
@@ -8,12 +8,15 @@ Videotalksite::Application.routes.draw do
 
   root to: 'home#index'
 
-  ActiveAdmin.routes(self)
-  devise_for :admin_users, ActiveAdmin::Devise.config
   resource :users
   match '/profile' => "users#profile"
   match '/upload_avatar' => "users#upload_avatar"
-  match 'update_avatar' => "users#update_avatar"
+
+  resources :videos, :except => :index
+  resources :uploads, :only => :index
+
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

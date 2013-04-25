@@ -1,0 +1,18 @@
+%table.fixed-width.three-column.width-1180px#video
+  %tbody
+    %tr
+      %td.width-200px
+      %td
+        - if @video.status == 'done'
+          %video.sublime{:poster => "#{@video.path.screenshot}", :width => "640", :height => "360", :title => "Midnight Sun", 'data-uid' => "a240e92d", :preload => "none"}
+            %source{:src => "#{@video.path.mp4}"}
+        - else
+          %div.processing
+            %div.loading.size-96px
+            %div.text Video is processing....
+        %br
+        %div.shared
+          %img.size-36px.pointer{:src => '/assets/btn_facebook.png', 'data-type' => 'facebook'}
+          %img.size-36px.pointer{:src => '/assets/btn_google.png', 'data-type' => 'google'}
+          %img.size-36px.pointer{:src => '/assets/btn_twitter.png', 'data-type' => 'twitter'}
+      %td.width-320px

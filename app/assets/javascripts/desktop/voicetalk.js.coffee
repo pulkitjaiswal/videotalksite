@@ -12,6 +12,7 @@ window.Voicetalk =
   Views: {}
   Routers: {}
   initialize: ->
-
+    new Voicetalk.Views.UploadsIndex()
+    new Voicetalk.Views.VideosIndex()
 $(document).ready ->
   Voicetalk.initialize()

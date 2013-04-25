@@ -22,17 +22,17 @@ class VideoUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :mp4 do
-    process encode_video: [:mp4, :custom=>"-qscale 0 -profile:v baseline -g 30", callbacks: { after_transcode: :set_success }]
-    def full_filename(for_file)
-      %Q{#{for_file.chomp(File.extname(for_file))}.mp4}
-    end
-  end
-
   version :screenshot do
     process thumbnail: [{format: 'png', quality: 10, size: 192, strip: true}]
     def full_filename for_file
       %Q{#{for_file.chomp(File.extname(for_file))}.png}
+    end
+  end
+
+  version :mp4 do
+    process encode_video: [:mp4, :custom=>"-qscale 0 -profile:v baseline -g 30", callbacks: { after_transcode: :set_success }]
+    def full_filename(for_file)
+      %Q{#{for_file.chomp(File.extname(for_file))}.mp4}
     end
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:

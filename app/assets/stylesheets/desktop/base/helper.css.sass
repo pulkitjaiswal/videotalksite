@@ -1,0 +1,86 @@
+@import "../base/mixin"
+
+.hide
+  display: none !important
+
+.show
+  display: block !important
+
+.left
+  float: left
+
+.right
+  float: right
+
+.text-left
+  text-align: left
+
+.text-center
+  text-align: center
+
+.text-right
+  text-align: right
+
+.selectable
+  -webkit-user-select: text
+  -khtml-user-select: text
+  -moz-user-select: text
+  -o-user-select: text
+  user-select: text
+
+.unselectable
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -o-user-select: none
+  user-select: none
+  -webkit-touch-callout: none
+
+.clip-content
+  white-space: nowrap
+  text-overflow: ellipsis
+  overflow: hidden
+
+.clip-content-raw
+  white-space: nowrap
+  text-overflow: clip
+  overflow: hidden
+
+.fullscreen
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+
+.bold
+  font-weight: bold
+
+.uppercase
+  text-transform: uppercase
+
+.pointer
+  cursor: pointer
+
+.rotate45
+  @include transform(translate(-16px, 9px) rotate(-45deg))
+
+@each $var in 16, 24, 32, 36, 40, 48, 64, 72, 80, 88, 96, 100, 128, 144, 160, 200, 256, 320, 480, 520, 640, 680, 800, 1024, 1180, 1280
+  .width-#{$var}px
+    width: #{$var}px
+  .height-#{$var}px
+    height: #{$var}px
+
+@each $size in 16, 24, 32, 36, 40, 48, 64, 72, 80, 88, 96, 100, 128, 144, 160, 200, 256, 320, 480, 520, 640, 680, 800, 1024, 1180, 1280
+  .size-#{$size}px
+    width: #{$size}px
+    height: #{$size}px
+
+@for $i from 8 through 160
+  .fontsize-#{$i}px
+    font-size: #{$i}px
+
+$i: 0
+@while $i <= 100
+  .width-#{$i}per
+    width: #{$i+'%'}
+  $i: $i + 5

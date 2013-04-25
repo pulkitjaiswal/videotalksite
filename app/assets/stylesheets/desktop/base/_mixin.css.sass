@@ -1,0 +1,78 @@
+@mixin border-radius($radius) 
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  -o-border-radius: $radius
+  -ms-border-radius: $radius
+  border-radius: $radius
+
+@mixin transition($object: all, $time: 500ms, $effect: ease)
+  -webkit-transition: $object $time $effect
+  -moz-transition: $object $time $effect
+  -o-transition: $object $time $effect
+  -ms-transition: $object $time $effect
+  transition: $object $time $effect
+
+@mixin transform($type) 
+  -webkit-transform: $type
+  -moz-transform: $type
+  -ms-transform: $type
+  -o-transform: $type
+  transform: $type
+
+@mixin transform-origin($top, $left) 
+  -webkit-transform-origin: $top $left
+  -moz-transform-origin: $top $left
+  -o-transform-origin: $top $left
+  -ms-transform-origin: $top $left
+  transform-origin: $top $left
+
+@mixin transform-style($type) 
+  -webkit-transform-style: $type
+  -moz-transform-style: $type
+  -o-transform-style: $type
+  -ms-transform-style: $type
+  transform-style: $type
+
+@mixin perspective($view) 
+  -webkit-perspective: $view
+  -moz-perspective: $view
+  -o-perspective: $view
+  -ms-perspective: $view
+  perspective: $view
+
+@mixin box-shadow($var)
+  -webkit-box-shadow: $var
+  -moz-box-shadow: $var
+  -o-box-shadow: $var
+  -ms-box-shadow: $var
+  box-shadow: $var
+
+@mixin box-sizing($type) 
+  -webkit-box-sizing: $type
+  -moz-box-sizing: $type
+  -o-box-sizing: $type
+  -ms-box-sizing: $type
+  box-sizing: $type
+
+@mixin background-clip($type)
+  -webkit-background-clip: $type
+  -moz-background-clip: $type
+  -o-background-clip: $type
+  -ms-background-clip: $type
+  background-clip: $type
+
+@mixin user-select($type)
+  -webkit-touch-callout: $type
+  -webkit-user-select: $type
+  -khtml-user-select: $type
+  -moz-user-select: $type
+  -ms-user-select: $type
+  user-select: $type
+
+@mixin placeholder($color)
+  &::-webkit-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color
