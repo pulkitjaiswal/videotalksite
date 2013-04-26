@@ -16,3 +16,16 @@
           %img.size-36px.pointer{:src => '/assets/btn_google.png', 'data-type' => 'google'}
           %img.size-36px.pointer{:src => '/assets/btn_twitter.png', 'data-type' => 'twitter'}
       %td.width-320px
+
+%div.box-comment
+
+
+%script{:type => "text/javascript"}
+  window.router = new Voicetalk.Routers.VideosRouter({video: #{@video.to_json({:include => :comments}).html_safe} });
+  Backbone.history.start();
+
+
+
+
+
+

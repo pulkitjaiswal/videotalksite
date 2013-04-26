@@ -1,11 +1,12 @@
 Voicetalk::Application.routes.draw do
 
-  resources :videos
+  resources :comments
 
-
+  resources :videos do
+    resources :comments
+  end
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
              controllers: {:omniauth_callbacks => "omniauth_callbacks", registrations: "registrations"}
-
   root to: 'home#index'
 
   resource :users

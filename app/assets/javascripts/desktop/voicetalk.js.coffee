@@ -14,5 +14,6 @@ window.Voicetalk =
   initialize: ->
     new Voicetalk.Views.UploadsIndex()
     new Voicetalk.Views.VideosIndex()
+
 $(document).ready ->
   Voicetalk.initialize()

@@ -15,6 +15,7 @@
 //= require jquery.ui.all
 //= require underscore
 //= require backbone
+//= require ./lib/backbone-relational
 //= require desktop/voicetalk
 //= require_tree .
 
