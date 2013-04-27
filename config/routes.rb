@@ -1,4 +1,4 @@
-Voicetalk::Application.routes.draw do
+Videotalksite::Application.routes.draw do
 
   resources :comments
 
