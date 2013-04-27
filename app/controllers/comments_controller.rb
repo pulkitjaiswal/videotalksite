@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
+
   def index
     @comments = Comment.all
 
@@ -40,14 +41,18 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
-
+    if params[:video_id].present?
+      @video = Video.find(params[:video_id])
+      @comment = Comment.new(params[:comment])
+      @comment.user_id = current_user.id
+      @video.comments << @comment
+    end
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render json: @comment, status: :created, location: @comment }
+      if @video.save
+        format.html {  }
+        format.json { render json: @video.comments.find(@comment.id), status: :created, location: @comment }
       else
-        format.html { render action: "new" }
+        format.html { }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

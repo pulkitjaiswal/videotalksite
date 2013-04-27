@@ -10,6 +10,7 @@ class Voicetalk.Views.CommentView extends Backbone.View
 
   destroy: () ->
     @model.destroy()
+    console.log(@model)
     this.remove()
 
     return false

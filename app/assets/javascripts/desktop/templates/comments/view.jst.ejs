@@ -1,3 +1,12 @@
-<div class="view"><%= text %></div>
+<div class="view">
+    <a class="sc-media-image comment-item-avatar" href="/"> <img src="" width="40" height="40" alt="">
+    </a>
+    <div class="comment-item">
+        <a href="/comments#/<%= _id %>/destroy" class="btn btn-mini destroy"><i class="icon-trash"></i></a>
+        <div class="view-body">
+            <p><%= text %></p>
+        </div>
+    </div>
+</div>
 
-<a href="/comments#/<%= _id %>/destroy" class="destroy"></a>
+

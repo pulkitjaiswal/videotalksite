@@ -9,6 +9,7 @@ class Voicetalk.Views.CommentNew extends Backbone.View
     super(options)
     @model = new @collection.model()
 
+    console.log(@collection)
     @model.bind("change:errors", () =>
       this.render()
     )
@@ -17,6 +18,8 @@ class Voicetalk.Views.CommentNew extends Backbone.View
     if e.keyCode == 13 and @$('.content').val() != ''
       @model.unset("errors")
       @model.set('text', @$('.content').val())
+      console.log(@collection.video_id.get('_id'))
+      #@model.set('video_id', @collection.video_id)
       console.log(@model)
       @collection.create(@model.toJSON(),
         success: (comment) =>

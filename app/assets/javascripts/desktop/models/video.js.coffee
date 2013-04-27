@@ -8,11 +8,11 @@ class Voicetalk.Models.Video extends Backbone.RelationalModel
     key: 'comments',
     relatedModel: 'Voicetalk.Models.Comment'
     collectionType: 'Voicetalk.Collections.CommentsCollection'
-    includeInJSON: false
+    includeInJSON: true
     reverseRelation: {
       key: 'video_id',
-      includeInJSON: 'id'
-    # 'relatedModel' is automatically set to 'Zoo'; the 'relationType' to 'HasOne'.
+      includeInJSON: '_id'
+
     }
   }]
 class Voicetalk.Collections.VideosCollection extends Backbone.Collection
